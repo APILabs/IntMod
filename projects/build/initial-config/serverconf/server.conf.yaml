@@ -1,0 +1,4 @@
+#remoteDefaultQueueManager: '{MQPolicy}:RemoteMQ' 
+#ResourceManagers:
+#  JVM:
+#    jvmDebugPort: 7605

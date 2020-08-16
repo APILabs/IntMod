@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+  <policy policyType="Kafka" policyName="Logger" policyTemplate="Kafka">
+    <bootstrapServers>broker-4-0qfkjtj58ys616vc.kafka.svc02.eu-gb.eventstreams.cloud.ibm.com:9093,broker-5-0qfkjtj58ys616vc.kafka.svc02.eu-gb.eventstreams.cloud.ibm.com:9093,broker-0-0qfkjtj58ys616vc.kafka.svc02.eu-gb.eventstreams.cloud.ibm.com:9093,broker-2-0qfkjtj58ys616vc.kafka.svc02.eu-gb.eventstreams.cloud.ibm.com:9093,broker-3-0qfkjtj58ys616vc.kafka.svc02.eu-gb.eventstreams.cloud.ibm.com:9093,broker-1-0qfkjtj58ys616vc.kafka.svc02.eu-gb.eventstreams.cloud.ibm.com:9093</bootstrapServers>
+    <securityProtocol>SASL_SSL</securityProtocol>
+    <sslProtocol>TLSv1.2</sslProtocol>
+    <securityIdentity>CloudES</securityIdentity>
+    <saslConfig></saslConfig>
+    <sslKeystoreLocation></sslKeystoreLocation>
+    <sslKeystoreSecurityIdentity></sslKeystoreSecurityIdentity>
+    <sslKeySecurityIdentity></sslKeySecurityIdentity>
+    <sslTruststoreLocation></sslTruststoreLocation>
+    <sslTruststoreSecurityIdentity></sslTruststoreSecurityIdentity>
+    <sslEnableCertificateHostnameChecking>true</sslEnableCertificateHostnameChecking>
+  </policy>
+</policies>

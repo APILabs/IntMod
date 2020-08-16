@@ -1,0 +1,32 @@
+BROKER SCHEMA mw.log
+
+
+CREATE COMPUTE MODULE ESLogProducer
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		 CALL CopyMessageHeaders();
+		 --CALL CopyEntireMessage();
+		 Set OutputRoot.JSON.Data.Input = InputRoot.BLOB;
+		 Set OutputRoot.JSON.Data.Headers = InputRoot.HTTPInputHeader;
+		 Set OutputRoot.JSON.Data.Runtime.ExecutionGroupLabel = ExecutionGroupLabel; 
+		 Set OutputRoot.JSON.Data.Runtime.WorkPath = WorkPath;
+		 set OutputRoot.JSON.Data.Runtime.MessageFlowLabel = MessageFlowLabel; 
+		 set OutputRoot.JSON.Data.Runtime.TimeStamp = CURRENT_TIMESTAMP;
+		 Set OutputRoot.JSON.Data.LogPoint = 'Request';
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

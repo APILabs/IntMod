@@ -1,0 +1,3 @@
+FROM ibmcom/ace:latest
+COPY DEA3.bar /home/aceuser/bars/
+RUN ace_compile_bars.sh
